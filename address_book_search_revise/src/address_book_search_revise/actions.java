@@ -46,6 +46,10 @@ public class actions {
                 int first_firstname_position = searchfirst_FirstName(firstname_list, prefix);
                 int last_firstname_position = searchlast_FirstName(firstname_list, prefix);
                 //if(first_firstname_position == last_firstname_position)
+                if(first_firstname_position == -1 && last_firstname_position == -1){
+                    System.out.println("cannot find that person");
+                    break;
+                }
                 ArrayList<Contact> res = new ArrayList<Contact>();
                 int dummy_firstname = first_firstname_position;
                 while(dummy_firstname <= last_firstname_position){

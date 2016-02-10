@@ -23,9 +23,10 @@ public class search {
                 //String r = c.getFirstName().substring(0, len);
                 //int j = r.compareToIgnoreCase(prefix);
                 //int k = r.compareTo(prefix);
+                Contact c = contacts.get(mid);
                 if(contacts.get(mid).getFirstName().startsWith(prefix)){
                     end = mid;
-                }else if(contacts.get(mid).getFirstName().substring(0, len).compareToIgnoreCase(prefix) < 0){
+                }else if(contacts.get(mid).getFirstName().substring(0, Math.min(len, c.getFirstName().length())).compareToIgnoreCase(prefix) < 0){
                     start  = mid;
                 }else{
                     end = mid;
@@ -51,9 +52,10 @@ public class search {
                 //String r = c.getFirstName().substring(0, len);
                 //int j = r.compareToIgnoreCase(prefix);
                 //int k = r.compareTo(prefix);
+                Contact c = contacts.get(mid);
                 if(contacts.get(mid).getFirstName().startsWith(prefix)){
                     start = mid;
-                }else if(contacts.get(mid).getFirstName().substring(0, len).compareToIgnoreCase(prefix) < 0){
+                }else if(contacts.get(mid).getFirstName().substring(0, Math.min(len, c.getFirstName().length()) ).compareToIgnoreCase(prefix) < 0){
                     start  = mid;
                 }else{
                     end = mid;

@@ -65,6 +65,6 @@ public class Contact {
     }
     @Override
     public String toString(){
-        return "Contact [firstName:"+ firstName  +" ,LastName:" + lastName +",phone:"+ phone + ",company:" + company + "]";
+        return "[firstName:"+ firstName  +" ,LastName:" + lastName +",phone:"+ phone + ",company:" + company + "]";
     }
 }
