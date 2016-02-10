@@ -95,6 +95,7 @@ public class actions {
                 System.out.println("enter partial or full phone number");
                 input1 = new Scanner(System.in);
                 prefix = input1.next().toString();
+                start = Instant.now();
                 int first_phone_position = searchfirst_PhoneNumber(phone_list, prefix);
                 int last_phone_position = searchlast_PhoneNumber(phone_list, prefix);
                 
@@ -112,12 +113,16 @@ public class actions {
                         break;
                     }
                 }
-                System.out.println(res2);
+                end = Instant.now();
+                timeElapsed = Duration.between(start, end);
+                System.out.println(timeElapsed.toNanos() + "ns");
+                System.out.println(res2+"(total number)" + (last_phone_position - first_phone_position +1));
                 break;
             case "C":
                 System.out.println("enter partial or full company name");
                 input1 = new Scanner(System.in);
                 prefix = input1.next().toString();
+                start = Instant.now();
                 int first_company_position = searchfirst_Company(company_list, prefix);
                 int last_company_position = searchlast_Company(company_list, prefix);
                 if(first_company_position == -1 && last_company_position == -1){
@@ -133,7 +138,10 @@ public class actions {
                         break;
                     }
                 }
-                System.out.println(res3);
+                end = Instant.now();
+                timeElapsed = Duration.between(start, end);
+                System.out.println(timeElapsed.toNanos() + "ns");
+                System.out.println(res3 + ("(total number)")+ (last_company_position - first_company_position +1 ));
                 break;
             default:
                 System.out.println("please try again");
