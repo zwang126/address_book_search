@@ -14,6 +14,7 @@ import comparator.phoneComparator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 /**
  *
@@ -26,7 +27,7 @@ public class Address_book_search_revise {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        String filename = "F:\\address_book\\P1\\SmallAddressBook.csv";
+        String filename = "F:\\address_book\\P1\\HugeAddressBook.csv";
         ArrayList<Contact> contacts = new ArrayList<Contact>();
         contacts = importCsv(filename);
         contacts.remove(0);
@@ -44,9 +45,22 @@ public class Address_book_search_revise {
         Collections.sort(firstname_list, new firstNameComparator());
         
         actions(company_list, phone_list, firstname_list, lastname_list);
+        choice(company_list, phone_list, firstname_list, lastname_list);
         
-        
-        String a = phone_list.toString();
     }
-    
+    private static void choice (ArrayList<Contact> company_list, ArrayList<Contact> phone_list, ArrayList<Contact> firstname_list, ArrayList<Contact> lastname_list){
+        System.out.println("woould like another search?");
+        
+        Scanner input = new Scanner(System.in);
+        String choice = input.next().toString().toUpperCase();
+        if(choice.equals("Y")){
+            actions(company_list, phone_list, firstname_list, lastname_list);
+            choice(company_list, phone_list, firstname_list, lastname_list);
+        }else if(choice.equals("N")){
+            System.exit(0);
+        }else{
+            System.out.println("input invalid please try again");
+            choice(company_list, phone_list, firstname_list, lastname_list);
+        }
+    }
 }

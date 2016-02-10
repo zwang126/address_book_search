@@ -68,7 +68,7 @@ public class search {
             }
            
     }
-    public static ArrayList<Contact> searchLastName(ArrayList<Contact> contacts, String prefix){
+    public static int searchfirst_LastName(ArrayList<Contact> contacts, String prefix){
         int len = prefix.length();
             ArrayList<Contact> res = new ArrayList<Contact>();
             int start  = 0;
@@ -80,7 +80,7 @@ public class search {
                 //int j = r.compareToIgnoreCase(prefix);
                 //int k = r.compareTo(prefix);
                 if(contacts.get(mid).getLastName().startsWith(prefix)){
-                    res.add(contacts.get(mid));
+                    end = mid;
                 }else if(contacts.get(mid).getLastName().substring(0, len).compareToIgnoreCase(prefix) < 0){
                     start  = mid;
                 }else{
@@ -88,16 +88,44 @@ public class search {
                 }
             }
             if(contacts.get(start).getLastName().startsWith(prefix)){
-                res.add(contacts.get(start));
+                return start;
             }else if(contacts.get(end).getLastName().startsWith(prefix)){
-                res.add(contacts.get(end));
+                return end;
             }else{
-                System.out.println("no such person");
+                return -1;
             }
-            return res;
+            
+        }
+    public static int searchlast_LastName(ArrayList<Contact> contacts, String prefix){
+        int len = prefix.length();
+            ArrayList<Contact> res = new ArrayList<Contact>();
+            int start  = 0;
+            int end = contacts.size() - 1;
+            while(start + 1 < end){
+                int mid =  start + (end - start)/2;
+                //Contact c =  contacts.get(mid);
+                //String r = c.getFirstName().substring(0, len);
+                //int j = r.compareToIgnoreCase(prefix);
+                //int k = r.compareTo(prefix);
+                if(contacts.get(mid).getLastName().startsWith(prefix)){
+                    start = mid;
+                }else if(contacts.get(mid).getLastName().substring(0, len).compareToIgnoreCase(prefix) < 0){
+                    start  = mid;
+                }else{
+                    end = mid;
+                }
+            }
+            if(contacts.get(start).getLastName().startsWith(prefix)){
+                return start;
+            }else if(contacts.get(end).getLastName().startsWith(prefix)){
+                return end;
+            }else{
+                return -1;
+            }
+            
         }
     
-    public static ArrayList<Contact> searchPhoneNumber(ArrayList<Contact> contacts, String prefix){
+    public static int searchfirst_PhoneNumber(ArrayList<Contact> contacts, String prefix){
         int len = prefix.length();
             ArrayList<Contact> res = new ArrayList<Contact>();
             int start  = 0;
@@ -109,7 +137,7 @@ public class search {
                 //int j = r.compareToIgnoreCase(prefix);
                 //int k = r.compareTo(prefix);
                 if(contacts.get(mid).getPhone().startsWith(prefix)){
-                    res.add(contacts.get(mid));
+                    end = mid;
                 }else if(contacts.get(mid).getPhone().substring(0, len).compareToIgnoreCase(prefix) < 0){
                     start  = mid;
                 }else{
@@ -117,15 +145,45 @@ public class search {
                 }
             }
             if(contacts.get(start).getPhone().startsWith(prefix)){
-                res.add(contacts.get(start));
+                return start;
             }else if(contacts.get(end).getPhone().startsWith(prefix)){
-                res.add(contacts.get(end));
+                return end;
             }else{
-                System.out.println("no such person");
+                return -1;
             }
-            return res;
+           
     }
-    public static ArrayList<Contact> searchCompany(ArrayList<Contact> contacts, String prefix){
+    
+    public static int searchlast_PhoneNumber(ArrayList<Contact> contacts, String prefix){
+        int len = prefix.length();
+            ArrayList<Contact> res = new ArrayList<Contact>();
+            int start  = 0;
+            int end = contacts.size() - 1;
+            while(start + 1 < end){
+                int mid =  start + (end - start)/2;
+                //Contact c =  contacts.get(mid);
+                //String r = c.getFirstName().substring(0, len);
+                //int j = r.compareToIgnoreCase(prefix);
+                //int k = r.compareTo(prefix);
+                if(contacts.get(mid).getPhone().startsWith(prefix)){
+                    start = mid;
+                }else if(contacts.get(mid).getPhone().substring(0, len).compareToIgnoreCase(prefix) < 0){
+                    start  = mid;
+                }else{
+                    end = mid;
+                }
+            }
+            if(contacts.get(start).getPhone().startsWith(prefix)){
+                return start;
+            }else if(contacts.get(end).getPhone().startsWith(prefix)){
+                return end;
+            }else{
+                return -1;
+            }
+           
+    }
+    
+    public static int searchfirst_Company(ArrayList<Contact> contacts, String prefix){
         int len = prefix.length();
             ArrayList<Contact> res = new ArrayList<Contact>();
             int start  = 0;
@@ -137,7 +195,7 @@ public class search {
                 //int j = r.compareToIgnoreCase(prefix);
                 //int k = r.compareTo(prefix);
                 if(contacts.get(mid).getCompany().startsWith(prefix)){
-                    res.add(contacts.get(mid));
+                    end = mid;
                 }else if(contacts.get(mid).getCompany().substring(0, len).compareToIgnoreCase(prefix) < 0){
                     start  = mid;
                 }else{
@@ -145,12 +203,40 @@ public class search {
                 }
             }
             if(contacts.get(start).getCompany().startsWith(prefix)){
-                res.add(contacts.get(start));
+                return start;
             }else if(contacts.get(end).getCompany().startsWith(prefix)){
-                res.add(contacts.get(end));
+                return end;
             }else{
-                System.out.println("no such person");
+                return -1;
             }
-            return res;
+       
+    }
+    public static int searchlast_Company(ArrayList<Contact> contacts, String prefix){
+        int len = prefix.length();
+            ArrayList<Contact> res = new ArrayList<Contact>();
+            int start  = 0;
+            int end = contacts.size() - 1;
+            while(start + 1 < end){
+                int mid =  start + (end - start)/2;
+                //Contact c =  contacts.get(mid);
+                //String r = c.getFirstName().substring(0, len);
+                //int j = r.compareToIgnoreCase(prefix);
+                //int k = r.compareTo(prefix);
+                if(contacts.get(mid).getCompany().startsWith(prefix)){
+                    start = mid;
+                }else if(contacts.get(mid).getCompany().substring(0, len).compareToIgnoreCase(prefix) < 0){
+                    start  = mid;
+                }else{
+                    end = mid;
+                }
+            }
+            if(contacts.get(start).getCompany().startsWith(prefix)){
+                return start;
+            }else if(contacts.get(end).getCompany().startsWith(prefix)){
+                return end;
+            }else{
+                return -1;
+            }
+       
     }
 }

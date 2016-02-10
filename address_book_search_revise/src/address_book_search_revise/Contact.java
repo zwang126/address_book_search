@@ -49,26 +49,7 @@ public class Contact {
             return one.phone.compareTo(other.phone);
         }
     };
-/*
-    public static Comparator<Contact> COMPARE_BY_COMPANY = new Comparator<Contact>() {
-        public int compare(Contact one, Contact other) {
-            return one.company.compareTo(other.company);
-        }
-    };
-    
-    public static Comparator<Contact> COMPARE_BY_LASTNAME = new Comparator<Contact>() {
-        public int compare(Contact one, Contact other) {
-            return one.lastName.compareTo(other.lastName);
-        }
-    };
-    
-    
-    public static Comparator<Contact> COMPARE_BY_FIRSTNAME = new Comparator<Contact>() {
-        public int compare(Contact one, Contact other) {
-            return one.firstName.compareTo(other.firstName);
-        }
-    };
-    */
+
     List<Contact> contacts1 = new ArrayList<Contact>();
 // Fill it.
   // Collections.sort(contacts1, new companyComparator());
