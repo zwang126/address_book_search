@@ -27,7 +27,7 @@ public class Address_book_search_revise {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        String filename = "F:\\address_book\\P1\\HugeAddressBook.csv";
+        String filename = "D:\\Documents\\MediumAddressBook.csv";
         ArrayList<Contact> contacts = new ArrayList<Contact>();
         contacts = importCsv(filename);
         contacts.remove(0);
@@ -49,7 +49,7 @@ public class Address_book_search_revise {
         
     }
     private static void choice (ArrayList<Contact> company_list, ArrayList<Contact> phone_list, ArrayList<Contact> firstname_list, ArrayList<Contact> lastname_list){
-        System.out.println("woould like another search?");
+        System.out.println("would like another search? (Y/N)");
         
         Scanner input = new Scanner(System.in);
         String choice = input.next().toString().toUpperCase();
