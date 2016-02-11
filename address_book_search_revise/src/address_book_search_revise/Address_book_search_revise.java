@@ -14,6 +14,7 @@ import comparator.phoneComparator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -32,18 +33,45 @@ public class Address_book_search_revise {
         contacts = importCsv(filename);
         contacts.remove(0);
         
-        
+        /*
+        HashMap<String, String> company_map = new HashMap<String, String>();
+        HashMap<String, String> phone_map = new HashMap<String, String>();
+        HashMap<String, String> firstname_map = new HashMap<String, String>();
+        HashMap<String, String> lastname_map = new HashMap<String, String>();
+        */
         ArrayList<Contact> company_list = new ArrayList<Contact>(contacts);
         ArrayList<Contact> firstname_list = new ArrayList<Contact>(contacts);
         ArrayList<Contact> lastname_list = new ArrayList<Contact>(contacts);
         ArrayList<Contact> phone_list = new ArrayList<Contact>(contacts);
         
+        ArrayList<String> only_company_list = new ArrayList<String>();
+        ArrayList<String> only_phone_list = new ArrayList<String>();
+        ArrayList<String> only_lastname_list = new ArrayList<String>();
+        ArrayList<String> only_firstname_list = new ArrayList<String>();
+        int i = 0;
+        for(Contact c : contacts){
+            only_company_list.add(c.getCompany() + ":" + i);
+            only_phone_list.add(c.getPhone() + ":" + i);
+            only_lastname_list.add(c.getLastName() + ":" + i);
+            only_firstname_list.add(c.getFirstName() + ":" + i);
+            //String res = c.toString();
+            //map.put(c.getCompany(), res);
+            i++;
+        }
+        
+        //add tag index
         
         Collections.sort(company_list, new companyComparator());
         Collections.sort(phone_list, new phoneComparator());
         Collections.sort(lastname_list, new lastNameComparator());
         Collections.sort(firstname_list, new firstNameComparator());
         
+        Collections.sort(only_company_list);
+        Collections.sort(only_phone_list);
+        Collections.sort(only_lastname_list);
+        Collections.sort(only_firstname_list);
+        
+        Collections.sort(only_company_list);        
         actions(company_list, phone_list, firstname_list, lastname_list);
         choice(company_list, phone_list, firstname_list, lastname_list);
         
