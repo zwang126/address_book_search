@@ -6,6 +6,7 @@
 package address_book_search_revise;
 
 import static address_book_search_revise.actions.actions;
+import static address_book_search_revise.actions_revise.actions_revise;
 import static address_book_search_revise.importCsv.importCsv;
 import comparator.companyComparator;
 import comparator.firstNameComparator;
@@ -28,7 +29,7 @@ public class Address_book_search_revise {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        String filename = "D:\\Documents\\MediumAddressBook.csv";
+        String filename = "F:\\address_book\\P1\\HugeAddressBook.csv";
         ArrayList<Contact> contacts = new ArrayList<Contact>();
         contacts = importCsv(filename);
         contacts.remove(0);
@@ -38,12 +39,12 @@ public class Address_book_search_revise {
         HashMap<String, String> phone_map = new HashMap<String, String>();
         HashMap<String, String> firstname_map = new HashMap<String, String>();
         HashMap<String, String> lastname_map = new HashMap<String, String>();
-        */
+        
         ArrayList<Contact> company_list = new ArrayList<Contact>(contacts);
         ArrayList<Contact> firstname_list = new ArrayList<Contact>(contacts);
         ArrayList<Contact> lastname_list = new ArrayList<Contact>(contacts);
         ArrayList<Contact> phone_list = new ArrayList<Contact>(contacts);
-        
+        */
         ArrayList<String> only_company_list = new ArrayList<String>();
         ArrayList<String> only_phone_list = new ArrayList<String>();
         ArrayList<String> only_lastname_list = new ArrayList<String>();
@@ -60,20 +61,23 @@ public class Address_book_search_revise {
         }
         
         //add tag index
-        
+        /*
         Collections.sort(company_list, new companyComparator());
         Collections.sort(phone_list, new phoneComparator());
         Collections.sort(lastname_list, new lastNameComparator());
         Collections.sort(firstname_list, new firstNameComparator());
-        
+        */
         Collections.sort(only_company_list);
+        
         Collections.sort(only_phone_list);
         Collections.sort(only_lastname_list);
         Collections.sort(only_firstname_list);
         
-        Collections.sort(only_company_list);        
-        actions(company_list, phone_list, firstname_list, lastname_list);
-        choice(company_list, phone_list, firstname_list, lastname_list);
+             
+        //actions(company_list, phone_list, firstname_list, lastname_list);
+        actions_revise(only_company_list, only_phone_list, only_firstname_list, only_lastname_list, contacts);
+        //choice(company_list, phone_list, firstname_list, lastname_list);
+        choice_revise(only_company_list, only_phone_list, only_firstname_list, only_lastname_list, contacts);
         
     }
     private static void choice (ArrayList<Contact> company_list, ArrayList<Contact> phone_list, ArrayList<Contact> firstname_list, ArrayList<Contact> lastname_list){
@@ -89,6 +93,21 @@ public class Address_book_search_revise {
         }else{
             System.out.println("input invalid please try again");
             choice(company_list, phone_list, firstname_list, lastname_list);
+        }
+    }
+    private static void choice_revise (ArrayList<String> company_list, ArrayList<String> phone_list, ArrayList<String> firstname_list, ArrayList<String> lastname_list,ArrayList<Contact> contacts){
+        System.out.println("would like another search? (Y/N)");
+        
+        Scanner input = new Scanner(System.in);
+        String choice = input.next().toString().toUpperCase();
+        if(choice.equals("Y")){
+            actions_revise(company_list, phone_list, firstname_list, lastname_list, contacts);
+            choice_revise(company_list, phone_list, firstname_list, lastname_list, contacts);
+        }else if(choice.equals("N")){
+            System.exit(0);
+        }else{
+            System.out.println("input invalid please try again");
+            choice_revise(company_list, phone_list, firstname_list, lastname_list,contacts);
         }
     }
 }
