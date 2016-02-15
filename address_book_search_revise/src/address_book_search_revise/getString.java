@@ -14,15 +14,20 @@ import java.util.List;
  */
 public class getString {
     public static int[] getNumArray(List<String> list){
-        int size = list.size();
-        int[] res = new int[size];
+        //int size = list.size();
+        int[] res = new int[20];
         int i = 0;
         for(String s : list){
             int k = s.lastIndexOf(":");
             String j = s.substring(k + 1);
             int num2 = Integer.parseInt(j);
+            
+            if(i > 19){
+                break;
+            }
             res[i] = num2;
-            i++;
+             i++;
+           
         }
         return res;
     }

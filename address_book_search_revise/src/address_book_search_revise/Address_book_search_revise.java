@@ -29,11 +29,15 @@ public class Address_book_search_revise {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        String filename = "F:\\address_book\\P1\\HugeAddressBook.csv";
         ArrayList<Contact> contacts = new ArrayList<Contact>();
+        try{
+        String filename = "F:\\address_book\\P1\\HugeAddressBook.csv";
+        
         contacts = importCsv(filename);
         contacts.remove(0);
-        
+        }catch(IOException e){
+            System.out.println(e.toString());
+        }
         /*
         HashMap<String, String> company_map = new HashMap<String, String>();
         HashMap<String, String> phone_map = new HashMap<String, String>();
@@ -75,6 +79,7 @@ public class Address_book_search_revise {
         
              
         //actions(company_list, phone_list, firstname_list, lastname_list);
+        System.out.println("Welcome to address book");
         actions_revise(only_company_list, only_phone_list, only_firstname_list, only_lastname_list, contacts);
         //choice(company_list, phone_list, firstname_list, lastname_list);
         choice_revise(only_company_list, only_phone_list, only_firstname_list, only_lastname_list, contacts);

@@ -6,14 +6,7 @@
 package address_book_search_revise;
 
 import static address_book_search_revise.getString.getNumArray;
-import static address_book_search_revise.search.searchfirst_Company;
-import static address_book_search_revise.search.searchfirst_FirstName;
-import static address_book_search_revise.search.searchfirst_LastName;
-import static address_book_search_revise.search.searchfirst_PhoneNumber;
-import static address_book_search_revise.search.searchlast_Company;
-import static address_book_search_revise.search.searchlast_FirstName;
-import static address_book_search_revise.search.searchlast_LastName;
-import static address_book_search_revise.search.searchlast_PhoneNumber;
+
 import static address_book_search_revise.search_revise.searchfirst_Company_revise;
 import static address_book_search_revise.search_revise.searchfirst_FirstName_revise;
 import static address_book_search_revise.search_revise.searchfirst_LastName_revise;
@@ -39,7 +32,7 @@ public class actions_revise {
         Instant end = null;
         Duration timeElapsed = null;
         Scanner input1 = new Scanner(System.in);
-        System.out.println("Welcome to address book");
+        
         System.out.println("What would you like to search on?");
 
         System.out.println("F,L,P,C");
